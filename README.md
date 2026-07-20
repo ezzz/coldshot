@@ -38,6 +38,14 @@ DEVELOPMENT_TEAM=YOUR_TEAM_ID ruby scripts/generate_project.rb
 
 See [MVP 2](docs/MVP-2.md), [MVP 1](docs/MVP-1.md), the [large validation campaign](docs/VALIDATION-CAMPAIGN.md), the [product roadmap](docs/ROADMAP.md), [safety invariants](docs/SAFETY-INVARIANTS.md), the [fidelity matrix](docs/FIDELITY-MATRIX.md), and the current [verification status](docs/VERIFICATION.md).
 
+## License
+
+The source code in this repository is released under the [MIT License](LICENSE).
+
+The ColdShot name, logo, visual identity, and product assets are not granted
+under that license. Forks and redistributions should use their own name and
+branding unless explicitly authorized.
+
 ## Diagnostic logs
 
 ColdShot writes structured logs to the macOS unified log under the subsystem
