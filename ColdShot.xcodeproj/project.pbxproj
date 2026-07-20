@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09D57B538740642B40497A15 /* ColdShotCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4319ED20318DFA295AB2794B /* ColdShotCore.framework */; };
+		10B5EAEE3D1E7097060F5E8B /* ColdShotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C2E2F354395551F48E239 /* ColdShotApp.swift */; };
+		1AFDC6AF41221EFB3FD903DF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90979EB25ECC6301A15BE68 /* Cocoa.framework */; };
+		2F557ECBC20C46BE80E40290 /* ColdShotMenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10E0B93CC9B45A5C2F87063 /* ColdShotMenuBarView.swift */; };
+		31E42DA400BDA80EA97A4D75 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E4C5952661746DB41837EC /* AppKit.framework */; };
+		32CB43C1D6D9D9BFDF0E2C3C /* ArchiveTimeEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331BF35BF0D586133FD17481 /* ArchiveTimeEstimator.swift */; };
+		65D748640D2DC294BE5AB61C /* DestinationBookmarkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9235FA42C839587B7B26E995 /* DestinationBookmarkStore.swift */; };
+		682A5EBC6A99DBCF149D893F /* ArchiveCampaignEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01FE8582C3F716329A34633 /* ArchiveCampaignEngine.swift */; };
+		814D9D751F2780B3CD53D4DD /* DiagnosticRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB16A43FB910F8478CF8E8 /* DiagnosticRecorder.swift */; };
+		83070F37F3B8836A452F61DC /* BatchArchiveEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1DBBE60A923215528D7922 /* BatchArchiveEngine.swift */; };
+		84CFA5303EF31E3EB0873080 /* ColdShotCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4319ED20318DFA295AB2794B /* ColdShotCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9FF8F5EB9AB8D9D4AD5B7408 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E896293661DBE8C569B421BB /* Photos.framework */; };
+		B3618A5C12F7D7C23CDDF5BF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90979EB25ECC6301A15BE68 /* Cocoa.framework */; };
+		BAEF7657CB6B1A596B4752F2 /* InventoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E47D6677437A3A54FAF126D /* InventoryModels.swift */; };
+		C565CCA954E88B95FE29FB97 /* PhotoLibraryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F57B13BE9293273C7086AE /* PhotoLibraryClient.swift */; };
+		D3626C33B7824D9951A633C2 /* ArchiveModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4367E680D44F528712327 /* ArchiveModels.swift */; };
+		DC6D67B2BCF2A6803A489CC3 /* SHA256Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08508E337AB25E7B61F1A1 /* SHA256Hasher.swift */; };
+		DF3FB6776AE3A0E1029046FE /* ArchiveEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A352C9CFD98EA935F51F51B8 /* ArchiveEngine.swift */; };
+		E41E183271F9411D1C3DED5B /* SprintZeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6958508C7FD286C528E74 /* SprintZeroView.swift */; };
+		ED516A4C060D41D26ACBEA57 /* ArchiveIndexStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C975EF9A5138842468E4A380 /* ArchiveIndexStore.swift */; };
+		FC6ADB52B5EB8830437DA4C8 /* SprintZeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F2D24336F190C0C2C6734 /* SprintZeroModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEDD1A5DF147B64C6CF7D4F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23DFEBC120B341A0590C3B55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E5FB24DE62EE0E0F4B6A79C;
+			remoteInfo = ColdShotCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EBBE66A3D42D8AC88AF02714 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				84CFA5303EF31E3EB0873080 /* ColdShotCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08E4367E680D44F528712327 /* ArchiveModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ArchiveModels.swift; sourceTree = "<group>"; };
+		15FA9730C5DC978925A64AEB /* ColdShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColdShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		239A3F2710118A5667D9003B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		331BF35BF0D586133FD17481 /* ArchiveTimeEstimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ArchiveTimeEstimator.swift; sourceTree = "<group>"; };
+		4319ED20318DFA295AB2794B /* ColdShotCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColdShotCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47F57B13BE9293273C7086AE /* PhotoLibraryClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoLibraryClient.swift; sourceTree = "<group>"; };
+		51D6958508C7FD286C528E74 /* SprintZeroView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SprintZeroView.swift; sourceTree = "<group>"; };
+		72277F3B0A4556B6D2814193 /* ColdShot.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = ColdShot.entitlements; sourceTree = "<group>"; };
+		79EB16A43FB910F8478CF8E8 /* DiagnosticRecorder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DiagnosticRecorder.swift; sourceTree = "<group>"; };
+		7E47D6677437A3A54FAF126D /* InventoryModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InventoryModels.swift; sourceTree = "<group>"; };
+		8E8C2E2F354395551F48E239 /* ColdShotApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColdShotApp.swift; sourceTree = "<group>"; };
+		9235FA42C839587B7B26E995 /* DestinationBookmarkStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DestinationBookmarkStore.swift; sourceTree = "<group>"; };
+		94E4C5952661746DB41837EC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
+		A01FE8582C3F716329A34633 /* ArchiveCampaignEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ArchiveCampaignEngine.swift; sourceTree = "<group>"; };
+		A352C9CFD98EA935F51F51B8 /* ArchiveEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ArchiveEngine.swift; sourceTree = "<group>"; };
+		C10E0B93CC9B45A5C2F87063 /* ColdShotMenuBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColdShotMenuBarView.swift; sourceTree = "<group>"; };
+		C975EF9A5138842468E4A380 /* ArchiveIndexStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ArchiveIndexStore.swift; sourceTree = "<group>"; };
+		DC1DBBE60A923215528D7922 /* BatchArchiveEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BatchArchiveEngine.swift; sourceTree = "<group>"; };
+		E896293661DBE8C569B421BB /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Photos.framework; sourceTree = DEVELOPER_DIR; };
+		EE9F2D24336F190C0C2C6734 /* SprintZeroModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SprintZeroModel.swift; sourceTree = "<group>"; };
+		F90979EB25ECC6301A15BE68 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		FF08508E337AB25E7B61F1A1 /* SHA256Hasher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SHA256Hasher.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		712385E77DEF3EE9F08175CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AFDC6AF41221EFB3FD903DF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973B079A5EFCDA26AB2DADB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3618A5C12F7D7C23CDDF5BF /* Cocoa.framework in Frameworks */,
+				09D57B538740642B40497A15 /* ColdShotCore.framework in Frameworks */,
+				9FF8F5EB9AB8D9D4AD5B7408 /* Photos.framework in Frameworks */,
+				31E42DA400BDA80EA97A4D75 /* AppKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C430488974459A42784C5C5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A01FE8582C3F716329A34633 /* ArchiveCampaignEngine.swift */,
+				A352C9CFD98EA935F51F51B8 /* ArchiveEngine.swift */,
+				C975EF9A5138842468E4A380 /* ArchiveIndexStore.swift */,
+				08E4367E680D44F528712327 /* ArchiveModels.swift */,
+				331BF35BF0D586133FD17481 /* ArchiveTimeEstimator.swift */,
+				DC1DBBE60A923215528D7922 /* BatchArchiveEngine.swift */,
+				7E47D6677437A3A54FAF126D /* InventoryModels.swift */,
+				FF08508E337AB25E7B61F1A1 /* SHA256Hasher.swift */,
+			);
+			name = Sources;
+			path = Sources/ColdShotCore;
+			sourceTree = "<group>";
+		};
+		30DAC99B9217E85263A5497D = {
+			isa = PBXGroup;
+			children = (
+				FA920949F561DA5D820E5E3F /* Products */,
+				C96930969A8F5D982983A505 /* Frameworks */,
+				E82CB66E3EE9A218017A5C0A /* ColdShotCore */,
+				54774BCE1CF3E1598F1B6EE5 /* ColdShotApp */,
+			);
+			sourceTree = "<group>";
+		};
+		3DBE8348181C80E2B79DE8AF /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				F90979EB25ECC6301A15BE68 /* Cocoa.framework */,
+				E896293661DBE8C569B421BB /* Photos.framework */,
+				94E4C5952661746DB41837EC /* AppKit.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		54774BCE1CF3E1598F1B6EE5 /* ColdShotApp */ = {
+			isa = PBXGroup;
+			children = (
+				8E8C2E2F354395551F48E239 /* ColdShotApp.swift */,
+				C10E0B93CC9B45A5C2F87063 /* ColdShotMenuBarView.swift */,
+				9235FA42C839587B7B26E995 /* DestinationBookmarkStore.swift */,
+				79EB16A43FB910F8478CF8E8 /* DiagnosticRecorder.swift */,
+				47F57B13BE9293273C7086AE /* PhotoLibraryClient.swift */,
+				EE9F2D24336F190C0C2C6734 /* SprintZeroModel.swift */,
+				51D6958508C7FD286C528E74 /* SprintZeroView.swift */,
+				239A3F2710118A5667D9003B /* Info.plist */,
+				72277F3B0A4556B6D2814193 /* ColdShot.entitlements */,
+			);
+			name = ColdShotApp;
+			path = ColdShotApp;
+			sourceTree = "<group>";
+		};
+		C96930969A8F5D982983A505 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DBE8348181C80E2B79DE8AF /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E82CB66E3EE9A218017A5C0A /* ColdShotCore */ = {
+			isa = PBXGroup;
+			children = (
+				2C430488974459A42784C5C5 /* Sources */,
+			);
+			name = ColdShotCore;
+			path = ColdShotCore;
+			sourceTree = "<group>";
+		};
+		FA920949F561DA5D820E5E3F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4319ED20318DFA295AB2794B /* ColdShotCore.framework */,
+				15FA9730C5DC978925A64AEB /* ColdShot.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0E4E2A9FBFCC8A8C28D94743 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5E5FB24DE62EE0E0F4B6A79C /* ColdShotCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6AE675C52D1875F9F911B3F /* Build configuration list for PBXNativeTarget "ColdShotCore" */;
+			buildPhases = (
+				0E4E2A9FBFCC8A8C28D94743 /* Headers */,
+				49BA4612DC99F1ED45A4B916 /* Sources */,
+				712385E77DEF3EE9F08175CB /* Frameworks */,
+				77A16CE0609A34D2D5364EE7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ColdShotCore;
+			productName = ColdShotCore;
+			productReference = 4319ED20318DFA295AB2794B /* ColdShotCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE089F4D77DB1091B94A8D30 /* ColdShot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B7E176E75B8012778C27DCE /* Build configuration list for PBXNativeTarget "ColdShot" */;
+			buildPhases = (
+				180DA226BB9941BB706192EC /* Sources */,
+				973B079A5EFCDA26AB2DADB2 /* Frameworks */,
+				C60516DCDDA1711B8B338129 /* Resources */,
+				EBBE66A3D42D8AC88AF02714 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C7D4513D216C895C7C2A431 /* PBXTargetDependency */,
+			);
+			name = ColdShot;
+			productName = ColdShot;
+			productReference = 15FA9730C5DC978925A64AEB /* ColdShot.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23DFEBC120B341A0590C3B55 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 2650;
+				LastUpgradeCheck = 2650;
+			};
+			buildConfigurationList = 92CD1101C966A13DDCCD2E5C /* Build configuration list for PBXProject "ColdShot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 30DAC99B9217E85263A5497D;
+			productRefGroup = FA920949F561DA5D820E5E3F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E5FB24DE62EE0E0F4B6A79C /* ColdShotCore */,
+				BE089F4D77DB1091B94A8D30 /* ColdShot */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		77A16CE0609A34D2D5364EE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C60516DCDDA1711B8B338129 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		180DA226BB9941BB706192EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10B5EAEE3D1E7097060F5E8B /* ColdShotApp.swift in Sources */,
+				2F557ECBC20C46BE80E40290 /* ColdShotMenuBarView.swift in Sources */,
+				65D748640D2DC294BE5AB61C /* DestinationBookmarkStore.swift in Sources */,
+				814D9D751F2780B3CD53D4DD /* DiagnosticRecorder.swift in Sources */,
+				C565CCA954E88B95FE29FB97 /* PhotoLibraryClient.swift in Sources */,
+				FC6ADB52B5EB8830437DA4C8 /* SprintZeroModel.swift in Sources */,
+				E41E183271F9411D1C3DED5B /* SprintZeroView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49BA4612DC99F1ED45A4B916 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				682A5EBC6A99DBCF149D893F /* ArchiveCampaignEngine.swift in Sources */,
+				DF3FB6776AE3A0E1029046FE /* ArchiveEngine.swift in Sources */,
+				ED516A4C060D41D26ACBEA57 /* ArchiveIndexStore.swift in Sources */,
+				D3626C33B7824D9951A633C2 /* ArchiveModels.swift in Sources */,
+				32CB43C1D6D9D9BFDF0E2C3C /* ArchiveTimeEstimator.swift in Sources */,
+				83070F37F3B8836A452F61DC /* BatchArchiveEngine.swift in Sources */,
+				BAEF7657CB6B1A596B4752F2 /* InventoryModels.swift in Sources */,
+				DC6D67B2BCF2A6803A489CC3 /* SHA256Hasher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2C7D4513D216C895C7C2A431 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ColdShotCore;
+			target = 5E5FB24DE62EE0E0F4B6A79C /* ColdShotCore */;
+			targetProxy = BEDD1A5DF147B64C6CF7D4F6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3190D67995E9AA65AB1F9D45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_ENTITLEMENTS = ColdShotApp/ColdShot.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ColdShotApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coldshot.prototype;
+				PRODUCT_NAME = ColdShot;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		4D713D1412A50F8DF13B0E64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_ENTITLEMENTS = ColdShotApp/ColdShot.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ColdShotApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coldshot.prototype;
+				PRODUCT_NAME = ColdShot;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		81D04D5D2B16491CE4665893 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8B8E10B3DD88AF1F9920078C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C1C26599623F3FE4D725A018 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 0.1;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lsqlite3",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.coldshot.core;
+				PRODUCT_NAME = ColdShotCore;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D559AFD288ED59A016327BDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 0.1;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lsqlite3",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.coldshot.core;
+				PRODUCT_NAME = ColdShotCore;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1B7E176E75B8012778C27DCE /* Build configuration list for PBXNativeTarget "ColdShot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3190D67995E9AA65AB1F9D45 /* Release */,
+				4D713D1412A50F8DF13B0E64 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92CD1101C966A13DDCCD2E5C /* Build configuration list for PBXProject "ColdShot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B8E10B3DD88AF1F9920078C /* Debug */,
+				81D04D5D2B16491CE4665893 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6AE675C52D1875F9F911B3F /* Build configuration list for PBXNativeTarget "ColdShotCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D559AFD288ED59A016327BDF /* Release */,
+				C1C26599623F3FE4D725A018 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23DFEBC120B341A0590C3B55 /* Project object */;
+}
