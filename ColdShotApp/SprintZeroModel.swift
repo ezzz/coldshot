@@ -410,13 +410,13 @@ final class SprintZeroModel {
         case .unavailable:
             return nil
         case .local(let available):
-            guard let available else { return nil }
+            guard let available, available > 0 else { return nil }
             if let lower = archiveRunSummary?.estimatedVolume.lowerBoundBytes, lower > available {
                 return "L’espace du disque local est insuffisant pour l’estimation basse de cette sélection."
             }
             return "Disque local : \(formatBytes(available)) disponibles."
         case .remote(let available):
-            guard let available else { return nil }
+            guard let available, available > 0 else { return nil }
             return "Le partage réseau annonce environ \(formatBytes(available)) disponibles (valeur indicative)."
         case .unknown:
             return nil
@@ -426,6 +426,7 @@ final class SprintZeroModel {
     var destinationCapacityIsWarning: Bool {
         guard case .local(let available) = destinationCapacityState,
               let available,
+              available > 0,
               let lower = archiveRunSummary?.estimatedVolume.lowerBoundBytes else { return false }
         return lower > available
     }

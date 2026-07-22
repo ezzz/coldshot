@@ -21,22 +21,35 @@ struct SprintZeroView: View {
     }
 
     private var header: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text("ColdShot — MVP 1")
-                .font(.largeTitle.bold())
-            Text("Archive vérifiée de votre photothèque vers un stockage local ou un NAS.")
-                .foregroundStyle(.secondary)
-            Label("Cette version ne supprime aucun élément de Photos.", systemImage: "lock.shield")
-                .foregroundStyle(.green)
+        HStack(alignment: .top, spacing: 14) {
+            Image(systemName: "archivebox.circle.fill")
+                .font(.system(size: 38))
+                .foregroundStyle(.tint)
+                .symbolRenderingMode(.hierarchical)
+
+            VStack(alignment: .leading, spacing: 6) {
+                Text("ColdShot — MVP 1")
+                    .font(.largeTitle.bold())
+                Text("Archive vérifiée de votre photothèque vers un stockage local ou un NAS.")
+                    .foregroundStyle(.secondary)
+                Label("Aucune suppression dans Photos", systemImage: "lock.shield.fill")
+                    .foregroundStyle(.green)
+            }
         }
     }
 
     private var overviewPanel: some View {
-        GroupBox("Accès et photothèque") {
+        GroupBox {
             VStack(alignment: .leading, spacing: 12) {
-                HStack {
-                    LabeledContent("Accès Photos") {
-                        Label(model.authorizationLabel, systemImage: "photo.on.rectangle")
+                HStack(alignment: .top, spacing: 12) {
+                    Image(systemName: "photo.on.rectangle.angled")
+                        .font(.title3)
+                        .foregroundStyle(.tint)
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Accès Photos")
+                            .font(.headline)
+                        Text(model.authorizationLabel)
+                            .foregroundStyle(.secondary)
                     }
                     Spacer()
                     if model.authorizationStatus == .notDetermined
@@ -50,11 +63,23 @@ struct SprintZeroView: View {
 
                 Divider()
 
-                HStack {
-                    LabeledContent("Destination") {
+                HStack(alignment: .top, spacing: 12) {
+                    Image(systemName: "externaldrive.fill")
+                        .font(.title3)
+                        .foregroundStyle(.tint)
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Destination")
+                            .font(.headline)
                         Text(model.destinationURL?.path(percentEncoded: false) ?? "Aucun dossier sélectionné")
                             .lineLimit(2)
                             .truncationMode(.middle)
+                        if let message = model.destinationCapacityMessage {
+                            Label(message, systemImage: model.destinationCapacityIsWarning
+                                ? "exclamationmark.triangle.fill" : "externaldrive")
+                                .font(.caption)
+                                .foregroundStyle(model.destinationCapacityIsWarning ? .red : .secondary)
+                                .textSelection(.enabled)
+                        }
                     }
                     Spacer()
                     Button(model.destinationURL == nil ? "Choisir…" : "Changer…") {
@@ -82,9 +107,9 @@ struct SprintZeroView: View {
 
                 if let report = model.inventoryReport {
                     HStack(spacing: 24) {
-                        SummaryMetric(title: "Éléments indexés", value: report.totalAssetCount.formatted())
-                        SummaryMetric(title: "Années", value: report.years.count.formatted())
-                        SummaryMetric(title: "Sans date", value: report.undatedAssetCount.formatted())
+                        SummaryMetric(title: "Éléments indexés", value: report.totalAssetCount.formatted(), systemImage: "photo.stack")
+                        SummaryMetric(title: "Années", value: report.years.count.formatted(), systemImage: "calendar")
+                        SummaryMetric(title: "Sans date", value: report.undatedAssetCount.formatted(), systemImage: "questionmark.circle")
                         if let lastSync = model.lastPhotoSyncDate {
                             SummaryMetric(
                                 title: "Dernière mise à jour",
@@ -106,6 +131,10 @@ struct SprintZeroView: View {
             .padding(.vertical, 4)
             .frame(maxWidth: .infinity, alignment: .leading)
         }
+        label: {
+            Label("Accès et photothèque", systemImage: "square.stack.3d.up.fill")
+                .font(.headline)
+        }
     }
 
     private var libraryActions: some View {
@@ -123,7 +152,7 @@ struct SprintZeroView: View {
     }
 
     private var archivePanel: some View {
-        GroupBox("Archivage") {
+        GroupBox {
             VStack(alignment: .leading, spacing: 16) {
                 Picker("Mode", selection: $model.archiveMode) {
                     ForEach(SprintZeroModel.ArchiveMode.allCases) { mode in
@@ -141,13 +170,6 @@ struct SprintZeroView: View {
                 }
 
                 actionBar
-
-                if let message = model.destinationCapacityMessage {
-                    Label(message, systemImage: model.destinationCapacityIsWarning
-                        ? "externaldrive.badge.exclamationmark" : "externaldrive")
-                        .font(.caption)
-                        .foregroundStyle(model.destinationCapacityIsWarning ? .red : .secondary)
-                }
 
                 Label(model.statusMessage, systemImage: model.statusSymbol)
                     .foregroundStyle(model.phase == .failed ? .red : .secondary)
@@ -170,14 +192,24 @@ struct SprintZeroView: View {
             .padding(.vertical, 4)
             .frame(maxWidth: .infinity, alignment: .leading)
         }
+        label: {
+            Label("Archivage", systemImage: "arrow.down.doc.fill")
+                .font(.headline)
+        }
     }
 
     private var archiveGoal: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(archiveGoalTitle)
-                .font(.title2.bold())
-            Text(model.archiveModeDescription)
-                .foregroundStyle(.secondary)
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: model.statusSymbol)
+                .font(.title2)
+                .foregroundStyle(model.phase == .failed ? Color.red : Color.accentColor)
+                .symbolRenderingMode(.hierarchical)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(archiveGoalTitle)
+                    .font(.title2.bold())
+                Text(model.archiveModeDescription)
+                    .foregroundStyle(.secondary)
+            }
         }
     }
 
@@ -205,33 +237,32 @@ struct SprintZeroView: View {
             Text("Choisissez le dernier mois à archiver")
                 .font(.headline)
 
+            monthlyArchiveOverview
+
+            Divider()
             if let frontier = model.automaticCoverageFrontier {
                 Label(
-                    "Couverture d’archive connue jusqu’au \(frontier.formatted(date: .long, time: .omitted))",
-                    systemImage: "checkmark.seal"
+                    "Couverture connue jusqu’au \(frontier.formatted(date: .long, time: .omitted))",
+                    systemImage: "checkmark.seal.fill"
                 )
-                .foregroundStyle(model.remainingEligibleCount == 0 ? .green : .primary)
+                .foregroundStyle(model.remainingEligibleCount == 0 ? .green : .secondary)
             } else {
-                Label("Aucune frontière d’archive connue pour le moment", systemImage: "circle.dashed")
+                Label("Aucune couverture d’archive connue", systemImage: "circle.dashed")
                     .foregroundStyle(.secondary)
             }
 
-            Text(model.hasLimitedPhotosAccess
-                ? "Cette couverture concerne uniquement les éléments autorisés dans Photos."
-                : "Cette date décrit les archives créées et contrôlées lors du transfert ; elle n’autorise aucune suppression.")
-                .font(.caption)
-                .foregroundStyle(.secondary)
+            if model.hasLimitedPhotosAccess {
+                Label("Accès Photos limité", systemImage: "person.crop.circle.badge.exclamationmark")
+                    .foregroundStyle(.secondary)
+            }
 
             if model.unresolvedAutomaticChangeCount > 0 {
                 Label(
-                    "\(model.unresolvedAutomaticChangeCount) changement(s) ancien(s) seront revérifiés",
+                    "\(model.unresolvedAutomaticChangeCount) ancien(s) élément(s) à revérifier",
                     systemImage: "arrow.triangle.2.circlepath"
                 )
-                    .foregroundStyle(.orange)
+                .foregroundStyle(.orange)
             }
-
-            Divider()
-            monthlyArchiveOverview
         }
     }
 
@@ -414,25 +445,26 @@ struct SprintZeroView: View {
     private var actionBar: some View {
         HStack {
             if model.canPauseArchive {
-                Button("Mettre en pause") {
+                Button("Mettre en pause", systemImage: "pause.fill") {
                     model.pauseArchive()
                 }
             } else if model.isPausingArchive {
-                Button("Mise en pause…") {}
+                Button("Mise en pause…", systemImage: "pause.circle") {}
                     .disabled(true)
             } else if model.canRetryArchiveIssues {
-                Button("Réessayer les \(model.retryableIssueCount) écart(s)") {
+                Button("Réessayer les \(model.retryableIssueCount) écart(s)", systemImage: "arrow.clockwise") {
                     model.retryArchiveIssues()
                 }
                 .buttonStyle(.borderedProminent)
             } else if model.resumableTotalCount > 0 {
-                Button("Continuer") {
+                Button("Continuer", systemImage: "play.fill") {
                     model.resumeBatchArchive()
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(!model.canResumeBatch)
             } else {
-                Button(model.archiveMode == .automatic ? "Mettre l’archive à jour" : "Archiver cette période") {
+                Button(model.archiveMode == .automatic ? "Mettre l’archive à jour" : "Archiver cette période",
+                       systemImage: "arrow.down.to.line") {
                     model.startBatchArchive()
                 }
                 .buttonStyle(.borderedProminent)
@@ -440,7 +472,7 @@ struct SprintZeroView: View {
             }
 
             if let completed = model.latestCompletedBatch, !model.isWorking {
-                Button("Vérifier la dernière archive (\(completed.assets.count))") {
+                Button("Vérifier la dernière archive (\(completed.assets.count))", systemImage: "checkmark.shield") {
                     model.verifyLatestBatch()
                 }
                 .buttonStyle(.borderless)
@@ -449,7 +481,7 @@ struct SprintZeroView: View {
 
             Spacer()
 
-            Button("Exporter le rapport…") {
+            Button("Exporter le rapport…", systemImage: "doc.text") {
                 model.exportDiagnosticReport()
             }
         }
@@ -483,7 +515,7 @@ struct SprintZeroView: View {
     }
 
     private var historyPanel: some View {
-        GroupBox("Historique récent") {
+        GroupBox {
             VStack(alignment: .leading, spacing: 8) {
                 ForEach(model.archiveHistory) { campaign in
                     HStack {
@@ -503,6 +535,10 @@ struct SprintZeroView: View {
             }
             .padding(.vertical, 4)
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        label: {
+            Label("Historique récent", systemImage: "clock.arrow.circlepath")
+                .font(.headline)
         }
     }
 
@@ -613,12 +649,25 @@ private struct ArchiveStatusLabel: View {
 private struct SummaryMetric: View {
     let title: String
     let value: String
+    let systemImage: String?
+
+    init(title: String, value: String, systemImage: String? = nil) {
+        self.title = title
+        self.value = value
+        self.systemImage = systemImage
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
-            Text(title)
-                .font(.caption)
-                .foregroundStyle(.secondary)
+            if let systemImage {
+                Label(title, systemImage: systemImage)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            } else {
+                Text(title)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
             Text(value)
                 .font(.title3.bold())
                 .monospacedDigit()
