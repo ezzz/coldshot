@@ -165,7 +165,9 @@ struct SprintZeroView: View {
 
                 archiveGoal
 
-                if showsProgress {
+                if model.isRefreshingArchiveCatalog {
+                    archiveCatalogVerification
+                } else if showsProgress {
                     progressSummary
                 }
 
@@ -200,9 +202,12 @@ struct SprintZeroView: View {
 
     private var archiveGoal: some View {
         HStack(alignment: .top, spacing: 12) {
-            Image(systemName: model.statusSymbol)
+            Image(systemName: model.isRefreshingArchiveCatalog
+                ? "arrow.triangle.2.circlepath" : model.statusSymbol)
                 .font(.title2)
-                .foregroundStyle(model.phase == .failed ? Color.red : Color.accentColor)
+                .foregroundStyle(model.isRefreshingArchiveCatalog
+                    ? Color.blue
+                    : (model.phase == .failed ? Color.red : Color.accentColor))
                 .symbolRenderingMode(.hierarchical)
             VStack(alignment: .leading, spacing: 4) {
                 Text(archiveGoalTitle)
@@ -214,7 +219,10 @@ struct SprintZeroView: View {
     }
 
     private var archiveGoalTitle: String {
-        switch model.phase {
+        if model.isRefreshingArchiveCatalog {
+            return "Vérification des archives en cours…"
+        }
+        return switch model.phase {
         case .preparingArchive: "Préparation de la sauvegarde…"
         case .archiving: "Sauvegarde en cours…"
         case .pausing: "Mise en pause après l’élément courant…"
@@ -229,6 +237,19 @@ struct SprintZeroView: View {
         switch model.phase {
         case .preparingArchive, .archiving, .pausing, .paused: true
         default: model.resumableTotalCount > 0
+        }
+    }
+
+    private var archiveCatalogVerification: some View {
+        VStack(alignment: .leading, spacing: 7) {
+            ProgressView()
+                .progressViewStyle(.linear)
+            Label(
+                "Lecture des archives NAS et mise à jour des statuts…",
+                systemImage: "externaldrive.badge.checkmark"
+            )
+            .font(.callout)
+            .foregroundStyle(.secondary)
         }
     }
 
@@ -616,6 +637,7 @@ private struct ArchiveStatusLabel: View {
         switch state {
         case .recent: "Récent"
         case .toArchive: "À archiver"
+        case .verifying: "Vérification…"
         case .inProgress: "En cours"
         case .partial: "Partiel \(archivedCount)/\(totalCount)"
         case .archived: "Archivé et vérifié"
@@ -627,6 +649,7 @@ private struct ArchiveStatusLabel: View {
         switch state {
         case .recent: "circle"
         case .toArchive: "archivebox"
+        case .verifying: "arrow.triangle.2.circlepath"
         case .inProgress: "arrow.triangle.2.circlepath"
         case .partial: "circle.lefthalf.filled"
         case .archived: "checkmark.circle.fill"
@@ -638,6 +661,7 @@ private struct ArchiveStatusLabel: View {
         switch state {
         case .recent: .secondary
         case .toArchive: .orange
+        case .verifying: .blue
         case .inProgress: .yellow
         case .partial: .blue
         case .archived: .green

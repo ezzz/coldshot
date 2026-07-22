@@ -18,6 +18,7 @@ final class SprintZeroModel {
     enum MonthArchiveState: String, Equatable {
         case recent
         case toArchive
+        case verifying
         case inProgress
         case partial
         case archived
@@ -329,7 +330,9 @@ final class SprintZeroModel {
             let isTargeted = archiveMode == .automatic
                 && (summary.key.exclusiveEndDate(calendar: .current) ?? .distantFuture) <= cutoffDate
             let state: MonthArchiveState
-            if base.issueCount > 0 {
+            if isRefreshingArchiveCatalog {
+                state = .verifying
+            } else if base.issueCount > 0 {
                 state = .attention
             } else if activeMonth == summary.key && canPauseArchive {
                 state = .inProgress
@@ -357,7 +360,8 @@ final class SprintZeroModel {
             .map { year, months in
                 let states = Set(months.map(\.state))
                 let state: MonthArchiveState
-                if states.contains(.attention) { state = .attention }
+                if states.contains(.verifying) { state = .verifying }
+                else if states.contains(.attention) { state = .attention }
                 else if states.contains(.inProgress) { state = .inProgress }
                 else if states == [.archived] { state = .archived }
                 else if states.contains(.partial) || states.contains(.archived) { state = .partial }
